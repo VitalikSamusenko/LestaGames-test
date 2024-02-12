@@ -34,8 +34,8 @@ renderer.domElement.addEventListener("pointermove", findCursorPosition);
 function animate() {
   requestAnimationFrame(animate);
 
-  camera.position.x += (cursorX - camera.position.x) * 0.0001;
-  camera.position.y += (-cursorY - camera.position.y) * 0.0001;
+  camera.position.x += cursorX * 0.00003;
+  camera.position.y += -cursorY * 0.00003;
   camera.position.z = 6;
   camera.lookAt(scene.position);
 
