@@ -14,13 +14,16 @@ const MODEL_URL = new URL(
   import.meta.url
 );
 
-
+const TERRAIN_URL = new URL(
+    "../assets/model/terrain.glb",
+    import.meta.url
+  );
 
 
 const { sizes, camera, scene, canvas, controls, renderer } = init();
 
-let cursorX = 0,
-  cursorY = 0;
+let cursorX = 0, cursorY = 0;
+
 
 scene.background = new THREE.TextureLoader().load(background);
 
@@ -30,6 +33,10 @@ loader.load(MODEL_URL.href, (glft) => {
   animate();
 });
 
+loader.load(TERRAIN_URL.href, (glft) => {
+    glft.scene.position.y=-3.2
+    scene.add(glft.scene);
+  });
 
 
 const gunAndTowerGeometry = new THREE.BoxGeometry( 0.6, 0.6, 0);
@@ -42,6 +49,7 @@ const gunAndTowerMaterial = new THREE.MeshBasicMaterial(
 const gunAndTowerIcon = new THREE.Mesh( gunAndTowerGeometry, gunAndTowerMaterial );
 gunAndTowerIcon.position.set(0,1.4,1.5)
 scene.add( gunAndTowerIcon );
+
 
 
 const armorGeometry = new THREE.BoxGeometry( 0.6, 0.6, 0);

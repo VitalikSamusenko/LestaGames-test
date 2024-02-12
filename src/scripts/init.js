@@ -16,7 +16,7 @@ const init = () => {
     controls.enableZoom = false;
 	controls.enableRotate = false;
 	controls.maxDistance = 7;
-    controls.maxPolarAngle = THREE.MathUtils.degToRad( 95 );
+    controls.maxPolarAngle = THREE.MathUtils.degToRad( 90 );
 
 	const renderer = new THREE.WebGLRenderer({ canvas });
 	renderer.setSize(sizes.width, sizes.height);
