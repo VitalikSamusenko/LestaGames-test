@@ -18,6 +18,10 @@ module.exports = {
   ],
   module: {
     rules: [
+        {
+            test: /\.html$/,
+            use: 'html-loader',
+        },
       {
         test: /\.(scss|css)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
@@ -25,7 +29,8 @@ module.exports = {
       {
         test: /\.(jpg|png|svg|jpeg|gif)$/,
         type: 'asset/resource'
-    }
+        },
+
     ]
   },
   devServer: {
