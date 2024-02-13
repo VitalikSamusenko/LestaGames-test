@@ -97,7 +97,7 @@ function onMouseClick(event) {
     raycaster.setFromCamera(mouse, camera)
 
     var isIntersected = raycaster.intersectObjects(scene.children)
-    if (isIntersected) {
+    if (isIntersected[0]) {
         switch (isIntersected[0].object.name) {
             case 'armor':
                 inFocus = true
@@ -133,6 +133,8 @@ function onMouseClick(event) {
                 inFocus = false
             break
         }
+    }else  {
+        inFocus = false
     }
 }
 
