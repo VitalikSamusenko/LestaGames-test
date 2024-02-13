@@ -21,6 +21,8 @@ const { sizes, camera, scene, canvas, controls, renderer } = init()
 let cursorX = 0,
     cursorY = 0
 
+let inFocus = false
+
 scene.background = new THREE.TextureLoader().load(background)
 
 const loader = new GLTFLoader()
@@ -73,11 +75,13 @@ renderer.domElement.addEventListener('pointermove', findCursorPosition)
 
 function animate() {
     requestAnimationFrame(animate)
-
-    camera.position.x += cursorX * 0.00003
-    camera.position.y += -cursorY * 0.00003
-    camera.position.z = 6.5
-    camera.lookAt(scene.position)
+    
+    if (!inFocus) {
+        camera.position.x += cursorX * 0.00003
+        camera.position.y += -cursorY * 0.00003
+        camera.position.z = 6.5
+        camera.lookAt(scene.position)
+    }
 
     controls.update()
     renderer.render(scene, camera)
@@ -87,13 +91,48 @@ var raycaster = new THREE.Raycaster()
 var mouse = new THREE.Vector2()
 
 function onMouseClick(event) {
+    event.preventDefault()
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
     raycaster.setFromCamera(mouse, camera)
 
     var isIntersected = raycaster.intersectObjects(scene.children)
     if (isIntersected) {
-        console.log(isIntersected)
+        switch (isIntersected[0].object.name) {
+            case 'armor':
+                inFocus = true
+                anime({
+                    targets: camera.position,
+                    x: -2,
+                    y: 0.5,
+                    z: 5,
+                    easing: 'easeInOutQuad',
+                })
+            break
+            case 'gunAndTower':
+                inFocus = true
+                anime({
+                    targets: camera.position,
+                    x: 0,
+                    y: 2,
+                    z: 5,
+                    easing: 'easeInOutQuad',
+                })
+            break
+            case 'tracks':
+                inFocus = true
+                anime({
+                    targets: camera.position,
+                    x: 2.5,
+                    y: -0.2,
+                    z: 4,
+                    easing: 'easeInOutQuad',
+                })
+            break
+            default:
+                inFocus = false
+            break
+        }
     }
 }
 
