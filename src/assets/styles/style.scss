@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
 
+body{
+    overflow: hidden;
+}
 *{
     padding: 0;
     margin: 0;
@@ -20,46 +23,51 @@
 
 .header {
     position: absolute;
-    max-width: 369px;
+    max-width: 19.219vw;
     background: #000;
-    padding: 25px 40px;
+    padding: 2.315vh 2.083vw;
     text-align: center;
     border: 3px solid;
     border-image: linear-gradient(180deg, #fc0 0%, #F25322 50%, #EF4511 100%);
     border-image-slice: 1;
     border-top: none;
     top: 0;
-    left: 114px;
-
-    &__wrapper{
-        position: relative;
+    left: 5.938vw;
+    img {
+        width: 100%;
     }
     &__text{
         font-weight: 700;
-        font-size: 25px;
+        font-size: 2.315vh;
         text-transform: uppercase;
         text-align: center;
+        @media (max-width: 1600px) {
+            font-size: 2vh;
+        }
     }
 
     &__link{
-        margin-top: 41px;
+        margin-top: 3.796vh;
         font-weight: 700;
-        font-size: 24px;
+        font-size: 2.222vh;
         text-transform: uppercase;
-        width: 243px;
-        height: 78px;
+        width: 12.656vw;
+        height: 7.222vh;
         background: linear-gradient(180deg, #fc0 0%, #F25322 50%, #EF4511 100%);
         cursor: pointer;
+        @media (max-width: 1600px) {
+            font-size: 1.5vh;
+        }
     }
 }
 
 .about-tank{
     position: absolute;
-    top: 171px;
-    right: 190px;
-    padding: 30px;
+    top: 15.833vh;
+    right: 9.896vw;
+    padding: 2.778vh 1.563vw;
     background: rgba(0, 0, 0, 0.65);
-    width: 442px;
+    width: 23.021vw;
     border: 3px solid;
     border-image: linear-gradient(180deg, #fc0 0%, #F25322 50%, #EF4511 100%);
     border-image-slice: 1;
@@ -68,12 +76,15 @@
         text-align: center;
         text-transform: uppercase;
         font-weight: 700;
-        font-size: 41px;
+        font-size: 3.796vh;
+        @media (max-width: 1600px) {
+            font-size: 2.7vh;
+        }
     }
 
     &__table{
         width: 100%;
-        margin-top: 22px;
+        margin-top: 2.037vh;
         border-collapse: collapse;
 
         tr{
@@ -81,8 +92,11 @@
         }
 
         td{
-            padding: 4px 0;
+            padding: 0.370vh 0;
             color:   #d7d2b8;
+        }
+        @media (max-width: 1600px) {
+            font-size: 1.2vh;
         }
     }
 }
@@ -90,9 +104,9 @@
 .steps{
     display: flex;
     position: absolute;
-    bottom: 100px;
-    gap: 61px;
-    min-width: 1480px;
+    bottom: 9.259vh;
+    gap: 3.177vw;
+    min-width: 77.083vw;
     left: 0;
     right: 0;
     justify-content: center;
@@ -102,9 +116,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        max-width: 401px;
+        max-width: 20.885vw;
         background: rgba(0, 0, 0, 0.65);
-        padding: 27px 27px 55px;       
+        padding: 2.500vh 1.406vw 5.093vh;       
 
         border-radius: 6px;
         border-top: 4px solid #FFC000;
@@ -123,24 +137,34 @@
 
     &__title{
         font-weight: 700;
-        font-size: 25px;
+        font-size: 2.315vh;
         text-transform: uppercase;
+        max-width: 15.521vw;
+        @media (max-width: 1600px) {
+            font-size: 1.5vh;
+        }
     }
 
     &__number{
         font-weight: 700;
-        font-size: 61px;
+        font-size: 5.648vh;
         text-transform: uppercase;
         position: absolute;
-        top: 8px;
-        right: 12px;
+        top: 0.741vh;
+        right: 0.625vw;
+        @media (max-width: 1600px) {
+            font-size: 4.5vh;
+        }
     }
 
     &__descr{
-        margin-top: 16px;
+        margin-top: 1.481vh;
         font-weight: 400;
-        font-size: 16px;
+        font-size: 1.481vh;
         color: #d7d2b8;
+        @media (max-width: 1600px) {
+            font-size: 1.3vh;
+        }
     }
 }
 
@@ -148,7 +172,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 19px;
+    bottom: 1.759vh;
     text-align: center;
     p{
         opacity: 0.6;
