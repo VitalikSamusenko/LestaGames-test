@@ -1,5 +1,10 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+
+
+import init from './init'
+import { getData } from "./API"
+
 import '../assets/styles/style.scss'
 
 import background from '../assets/images/background.png'
@@ -7,7 +12,7 @@ import armor from '../assets/images/armor.png'
 import gunAndTower from '../assets/images/gun-and-tower.png'
 import tracks from '../assets/images/tracks.png'
 
-import init from './init'
+
 
 const MODEL_URL = new URL(
     '../assets/model/t-34-85_3d-model.glb',
@@ -77,10 +82,11 @@ function animate() {
     requestAnimationFrame(animate)
     
     if (!inFocus) {
-        camera.position.x += cursorX * 0.00003
-        camera.position.y += -cursorY * 0.00003
+        camera.position.x += cursorX * 0.00004
+        camera.position.y += -cursorY * 0.00004
         camera.position.z = 6.5
         camera.lookAt(scene.position)
+        
     }
 
     controls.update()
@@ -108,6 +114,7 @@ function onMouseClick(event) {
                     z: 5,
                     easing: 'easeInOutQuad',
                 })
+                getData('armor')
             break
             case 'gunAndTower':
                 inFocus = true
@@ -118,6 +125,7 @@ function onMouseClick(event) {
                     z: 5,
                     easing: 'easeInOutQuad',
                 })
+                getData('gunAndTower')
             break
             case 'tracks':
                 inFocus = true
@@ -128,13 +136,26 @@ function onMouseClick(event) {
                     z: 4,
                     easing: 'easeInOutQuad',
                 })
+                getData('tracks')
             break
             default:
-                inFocus = false
+                inFocus && anime({
+                    targets: camera.position,
+                    x: 0,
+                    y: 1,
+                    z: 6.5,
+                    easing: 'easeInOutQuad',
+                    complete: () => {
+                        inFocus = false
+                    }
+                })
+                getData()
             break
         }
     }else  {
         inFocus = false
+        getData()
+
     }
 }
 
