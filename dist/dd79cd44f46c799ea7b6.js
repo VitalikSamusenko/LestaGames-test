@@ -140,6 +140,26 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/assets/model/t-34-85_3d-model.glb":
+/*!***********************************************!*\
+  !*** ./src/assets/model/t-34-85_3d-model.glb ***!
+  \***********************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"24c8abfc095dc027f180.glb\";\n\n//# sourceURL=webpack://lesta/./src/assets/model/t-34-85_3d-model.glb?");
+
+/***/ }),
+
+/***/ "./src/assets/model/terrain.glb":
+/*!**************************************!*\
+  !*** ./src/assets/model/terrain.glb ***!
+  \**************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"3d7909c967f3a3ee041b.glb\";\n\n//# sourceURL=webpack://lesta/./src/assets/model/terrain.glb?");
+
+/***/ }),
+
 /***/ "./src/assets/images/armor.png":
 /*!*************************************!*\
   !*** ./src/assets/images/armor.png ***!
@@ -177,26 +197,6 @@ eval("module.exports = __webpack_require__.p + \"9fdc410c8445ac0e4404.png\";\n\n
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 eval("module.exports = __webpack_require__.p + \"06753375c91f58082a58.png\";\n\n//# sourceURL=webpack://lesta/./src/assets/images/tracks.png?");
-
-/***/ }),
-
-/***/ "./src/assets/model/t-34-85_3d-model.glb":
-/*!***********************************************!*\
-  !*** ./src/assets/model/t-34-85_3d-model.glb ***!
-  \***********************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("module.exports = __webpack_require__.p + \"44226402d599cbe1fe21.glb\";\n\n//# sourceURL=webpack://lesta/./src/assets/model/t-34-85_3d-model.glb?");
-
-/***/ }),
-
-/***/ "./src/assets/model/terrain.glb":
-/*!**************************************!*\
-  !*** ./src/assets/model/terrain.glb ***!
-  \**************************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-eval("module.exports = __webpack_require__.p + \"6143eb76da1628fff6fb.glb\";\n\n//# sourceURL=webpack://lesta/./src/assets/model/terrain.glb?");
 
 /***/ }),
 

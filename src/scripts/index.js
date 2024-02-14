@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 
 import init from './init'
-import { getData } from "./API"
+import { post } from "./API"
 
 import '../assets/styles/style.scss'
 
@@ -119,7 +119,7 @@ function onMouseClick(event) {
                     z: 5,
                     easing: 'easeInOutQuad',
                 })
-                getData('armor')
+                post('armor')
             break
             case 'gunAndTower':
                 inFocus = true
@@ -130,7 +130,7 @@ function onMouseClick(event) {
                     z: 5,
                     easing: 'easeInOutQuad',
                 })
-                getData('gunAndTower')
+                post('gunAndTower')
             break
             case 'tracks':
                 inFocus = true
@@ -141,7 +141,7 @@ function onMouseClick(event) {
                     z: 4,
                     easing: 'easeInOutQuad',
                 })
-                getData('tracks')
+                post('tracks')
             break
             default:
                 inFocus && anime({
@@ -154,7 +154,7 @@ function onMouseClick(event) {
                         inFocus = false
                     }
                 })
-                getData()
+                inFocus && post()
             break
         }
     }else  {
@@ -168,7 +168,7 @@ function onMouseClick(event) {
                 inFocus = false
             }
         })
-        getData()
+        inFocus && post()
 
     }
 }
