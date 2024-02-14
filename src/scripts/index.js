@@ -80,7 +80,8 @@ renderer.domElement.addEventListener('pointermove', findCursorPosition)
 
 function animate() {
     requestAnimationFrame(animate)
-    
+
+
     if (!inFocus) {
         camera.position.x += cursorX * 0.00004
         camera.position.y += -cursorY * 0.00004
@@ -88,6 +89,10 @@ function animate() {
         camera.lookAt(scene.position)
         
     }
+    
+    gunAndTowerIcon.lookAt(camera.position)
+    armorIcon.lookAt(camera.position)
+    tracksIcon.lookAt(camera.position)
 
     controls.update()
     renderer.render(scene, camera)
@@ -132,7 +137,7 @@ function onMouseClick(event) {
                 anime({
                     targets: camera.position,
                     x: 2.5,
-                    y: -0.2,
+                    y: 0.1,
                     z: 4,
                     easing: 'easeInOutQuad',
                 })
@@ -153,7 +158,16 @@ function onMouseClick(event) {
             break
         }
     }else  {
-        inFocus = false
+        inFocus && anime({
+            targets: camera.position,
+            y: 1,
+            x: 0,
+            z: 6.5,
+            easing: 'easeOutQuad',
+            complete: () => {
+                inFocus = false
+            }
+        })
         getData()
 
     }
@@ -162,15 +176,12 @@ function onMouseClick(event) {
 window.addEventListener('click', onMouseClick)
 
 window.addEventListener('resize', () => {
-    // Обновляем размеры
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
 
-    // Обновляем соотношение сторон камеры
     camera.aspect = sizes.width / sizes.height
     camera.updateProjectionMatrix()
 
-    // Обновляем renderer
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
     renderer.render(scene, camera)

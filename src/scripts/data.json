@@ -1,6 +1,9 @@
 {
     "gunAndTower": {
-        "img": [["../assets/images/tank_gun.png", "85 ММ Д-5Т-85БМ"], ["../assets/images/tank_tower.png", "Т-34-85 РАСШИРЕННАЯ"]],
+        "name" : "Огневая мощь",
+        "img": [
+            ["https://ru-wotp.lesta.ru/static/5.130.7_c0bc4a/wotp_static/img/tankopedia_new/frontend/scss/tankopedia-detail/img/modules/vehiclegun.png", "85 ММ Д-5Т-85БМ"], 
+            ["https://ru-wotp.lesta.ru/static/5.130.7_c0bc4a/wotp_static/img/tankopedia_new/frontend/scss/tankopedia-detail/img/modules/vehicleturret.png", "Т-34-85 РАСШИРЕННАЯ"]],
         "info": [
             ["Урон", "180 / 180 / 300 ед."],
             ["Бронепробиваемость", "144 / 194 / 44 мм"],
@@ -13,6 +16,7 @@
         ]
     },
     "armor": {
+        "name" : "Живучесть",
         "info": [
             ["Прочность", "810 ед"],
             ["Бронирование корпуса", "45 / 45 / 40 мм"],
@@ -21,7 +25,8 @@
         ]
     },
     "tracks": {
-        "img":[["../assets/images/tank_truck.png","Т-34-85-60"], ["../assets/images/tank_engine.png","В-54К"]],
+        "name" : "Мобильность",
+        "img":[["https://ru-wotp.lesta.ru/static/5.130.7_c0bc4a/wotp_static/img/tankopedia_new/frontend/scss/tankopedia-detail/img/modules/vehiclechassis.png","Т-34-85-60"], ["https://ru-wotp.lesta.ru/static/5.130.7_c0bc4a/wotp_static/img/tankopedia_new/frontend/scss/tankopedia-detail/img/modules/vehicleengine.png","В-54К"]],
         "info":[
             ["Масса/Предельная масса","33,65 / 35,30 т"],
             ["Мощность двигателя","600 л.с."],

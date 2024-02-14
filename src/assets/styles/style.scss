@@ -81,7 +81,20 @@ body{
             font-size: 2.7vh;
         }
     }
+    &__images{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+        font-size: 1.4vh;
+        gap: 20px;
+    }
+    &__image{
+        text-align: center;
 
+        p{
+            margin-top: 5px;
+        }
+    }
     &__table{
         width: 100%;
         margin-top: 2.037vh;
