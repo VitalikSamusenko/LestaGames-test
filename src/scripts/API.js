@@ -28,7 +28,7 @@ export  const getData = (item = 'default') => {
 
 const server = (item) =>
     new Promise((resolve) => {
-        setTimeout(() => resolve(item), 1500)
+        setTimeout(() => resolve(item), 750)
 })
 
 export const post = async (item) => {

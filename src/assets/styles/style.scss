@@ -47,16 +47,21 @@ body{
     }
 
     &__link{
+        display: block;
+        border: none;
+        margin: 0 auto;
         margin-top: 3.796vh;
         font-weight: 700;
         font-size: 2.222vh;
         text-transform: uppercase;
         width: 12.656vw;
         height: 7.222vh;
+        line-height: 7.222vh;
         background: linear-gradient(180deg, #fc0 0%, #F25322 50%, #EF4511 100%);
         cursor: pointer;
+        text-decoration: none;
         @media (max-width: 1600px) {
-            font-size: 1.5vh;
+            font-size: 1.8vh;
         }
     }
 }
@@ -80,7 +85,7 @@ body{
         font-weight: 700;
         font-size: 3.796vh;
         @media (max-width: 1600px) {
-            font-size: 2.7vh;
+            font-size: 3vh;
         }
     }
     &__images{
@@ -101,7 +106,6 @@ body{
         width: 100%;
         margin-top: 2.037vh;
         border-collapse: collapse;
-
         tr{
             border-bottom: 1px dashed #4B4B4B;
         }
@@ -109,9 +113,12 @@ body{
         td{
             padding: 0.370vh 0;
             color:   #d7d2b8;
+            @media (max-width: 1600px) {
+                padding: 0.170vh 0;
+            }
         }
         @media (max-width: 1600px) {
-            font-size: 1.2vh;
+            font-size: 1.6vh;
         }
     }
 }
@@ -155,9 +162,6 @@ body{
         font-size: 2.315vh;
         text-transform: uppercase;
         max-width: 15.521vw;
-        @media (max-width: 1600px) {
-            font-size: 1.5vh;
-        }
     }
 
     &__number{
@@ -167,9 +171,6 @@ body{
         position: absolute;
         top: 0.741vh;
         right: 0.625vw;
-        @media (max-width: 1600px) {
-            font-size: 4.5vh;
-        }
     }
 
     &__descr{
@@ -177,9 +178,6 @@ body{
         font-weight: 400;
         font-size: 1.481vh;
         color: #d7d2b8;
-        @media (max-width: 1600px) {
-            font-size: 1.3vh;
-        }
     }
 }
 

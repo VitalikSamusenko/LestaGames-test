@@ -1,9 +1,8 @@
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
-
 import init from './init'
-import { post } from "./API"
+import { post } from './API'
 
 import '../assets/styles/style.scss'
 
@@ -11,8 +10,6 @@ import background from '../assets/images/background.png'
 import armor from '../assets/images/armor.png'
 import gunAndTower from '../assets/images/gun-and-tower.png'
 import tracks from '../assets/images/tracks.png'
-
-
 
 const MODEL_URL = new URL(
     '../assets/model/t-34-85_3d-model.glb',
@@ -81,15 +78,13 @@ renderer.domElement.addEventListener('pointermove', findCursorPosition)
 function animate() {
     requestAnimationFrame(animate)
 
-
     if (!inFocus) {
         camera.position.x += cursorX * 0.00004
         camera.position.y += -cursorY * 0.00004
-        camera.position.z = 6.5
+        camera.position.z = 6.7
         camera.lookAt(scene.position)
-        
     }
-    
+
     gunAndTowerIcon.lookAt(camera.position)
     armorIcon.lookAt(camera.position)
     tracksIcon.lookAt(camera.position)
@@ -102,7 +97,6 @@ var raycaster = new THREE.Raycaster()
 var mouse = new THREE.Vector2()
 
 function onMouseClick(event) {
-    event.preventDefault()
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
     raycaster.setFromCamera(mouse, camera)
@@ -111,66 +105,49 @@ function onMouseClick(event) {
     if (isIntersected[0]) {
         switch (isIntersected[0].object.name) {
             case 'armor':
-                inFocus = true
-                anime({
-                    targets: camera.position,
-                    x: -2,
-                    y: 0.5,
-                    z: 5,
-                    easing: 'easeInOutQuad',
-                })
-                post('armor')
-            break
-            case 'gunAndTower':
-                inFocus = true
-                anime({
-                    targets: camera.position,
-                    x: 0,
-                    y: 2,
-                    z: 5,
-                    easing: 'easeInOutQuad',
-                })
-                post('gunAndTower')
-            break
-            case 'tracks':
-                inFocus = true
-                anime({
-                    targets: camera.position,
-                    x: 2.5,
-                    y: 0.1,
-                    z: 4,
-                    easing: 'easeInOutQuad',
-                })
-                post('tracks')
-            break
-            default:
-                inFocus && anime({
-                    targets: camera.position,
-                    x: 0,
-                    y: 1,
-                    z: 6.5,
-                    easing: 'easeInOutQuad',
-                    complete: () => {
-                        inFocus = false
-                    }
-                })
-                inFocus && post()
-            break
-        }
-    }else  {
-        inFocus && anime({
-            targets: camera.position,
-            y: 1,
-            x: 0,
-            z: 6.5,
-            easing: 'easeOutQuad',
-            complete: () => {
-                inFocus = false
-            }
-        })
-        inFocus && post()
+                if (!inFocus) {
+                    inFocus = true
+                    lookAt(-2, 0.5, 5, inFocus)
+                    post('armor')
+                }
 
+                break
+            case 'gunAndTower':
+                if (!inFocus) {
+                    inFocus = true
+                    lookAt(0, 2, 5, inFocus)
+                    post('gunAndTower')
+                }
+                break
+            case 'tracks':
+                if (!inFocus) {
+                    inFocus = true
+                    lookAt(2.5, 0.1, 4, inFocus)
+                    post('tracks')
+                }
+                break
+            default:
+                inFocus && lookAt(0, 1, 6.7)
+                inFocus && post()
+                break
+        }
+    } else {
+        inFocus && lookAt(0, 1, 6.7)
+        inFocus && post()
     }
+}
+
+const lookAt = (x, y, z, focus = false) => {
+    anime({
+        targets: camera.position,
+        x: x,
+        y: y,
+        z: z,
+        easing: 'easeInOutQuad',
+        complete: () => {
+            if (!focus) inFocus = false
+        },
+    })
 }
 
 window.addEventListener('click', onMouseClick)
